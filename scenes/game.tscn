@@ -1,12 +1,27 @@
 [gd_scene format=3 uid="uid://dyh2obx5xfvb5"]
 
 [ext_resource type="Texture2D" uid="uid://dkvahubm58r83" path="res://assets/arts/Board.png" id="1_uwrxv"]
-[ext_resource type="Script" uid="uid://j3gnmnqsbo28" path="res://player_paddle.gd" id="2_lnu2h"]
+[ext_resource type="Script" uid="uid://j3gnmnqsbo28" path="res://scripts/player_paddle.gd" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://dsci61quqrxxh" path="res://assets/arts/Player.png" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://dg50cmyapdlbp" path="res://assets/arts/Computer.png" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://dqm3ljhgg1c1j" path="res://scripts/computer_paddle.gd" id="4_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://dcmhlkkwrnr55" path="res://assets/arts/Ball.png" id="5_iywne"]
+[ext_resource type="Script" uid="uid://dedsyqrdgpx0y" path="res://scripts/ball.gd" id="5_p57ef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4mbk"]
 size = Vector2(17.5, 120)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ihwu4"]
+radius = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mag2s"]
+size = Vector2(1280, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gee14"]
+size = Vector2(40, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tnpc"]
+size = Vector2(40, 720)
 
 [node name="Game" type="Node2D" unique_id=1232321510]
 
@@ -29,9 +44,39 @@ shape = SubResource("RectangleShape2D_k4mbk")
 
 [node name="ComputerPaddle" type="CharacterBody2D" parent="." unique_id=1237794877]
 position = Vector2(40, 360)
+script = ExtResource("4_u5sy4")
 
 [node name="Sprite2D" type="Sprite2D" parent="ComputerPaddle" unique_id=2006061310]
 texture = ExtResource("4_lbhrr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerPaddle" unique_id=1480362972]
 shape = SubResource("RectangleShape2D_k4mbk")
+
+[node name="Ball" type="CharacterBody2D" parent="." unique_id=1418761572]
+script = ExtResource("5_p57ef")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball" unique_id=1274904114]
+position = Vector2(640, 360)
+texture = ExtResource("5_iywne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=167565729]
+position = Vector2(640, 360)
+shape = SubResource("CircleShape2D_ihwu4")
+
+[node name="TopWall" type="StaticBody2D" parent="." unique_id=2006366645]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall" unique_id=14924354]
+position = Vector2(640, -20)
+shape = SubResource("RectangleShape2D_mag2s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TopWall" unique_id=244375332]
+position = Vector2(642, 739)
+shape = SubResource("RectangleShape2D_mag2s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="TopWall" unique_id=1941465704]
+position = Vector2(1300, 363)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="TopWall" unique_id=1213758681]
+position = Vector2(-20, 364)
+shape = SubResource("RectangleShape2D_0tnpc")
