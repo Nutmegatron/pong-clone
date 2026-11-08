@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dyh2obx5xfvb5"]
+
+[ext_resource type="Texture2D" uid="uid://dkvahubm58r83" path="res://assets/arts/Board.png" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://j3gnmnqsbo28" path="res://player_paddle.gd" id="2_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://dsci61quqrxxh" path="res://assets/arts/Player.png" id="2_yqjtg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4mbk"]
+size = Vector2(17.5, 120)
+
+[node name="Game" type="Node2D" unique_id=1232321510]
+
+[node name="Background" type="Node2D" parent="." unique_id=121690283]
+
+[node name="Board" type="Sprite2D" parent="Background" unique_id=1303017432]
+scale = Vector2(1.596, 1.582)
+texture = ExtResource("1_uwrxv")
+centered = false
+
+[node name="PlayerPaddle" type="CharacterBody2D" parent="." unique_id=63492282]
+position = Vector2(1240, 360)
+script = ExtResource("2_lnu2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerPaddle" unique_id=352808237]
+texture = ExtResource("2_yqjtg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPaddle" unique_id=1475558220]
+shape = SubResource("RectangleShape2D_k4mbk")
