@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dkvahubm58r83" path="res://assets/arts/Board.png" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://j3gnmnqsbo28" path="res://player_paddle.gd" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://dsci61quqrxxh" path="res://assets/arts/Player.png" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://dg50cmyapdlbp" path="res://assets/arts/Computer.png" id="4_lbhrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4mbk"]
 size = Vector2(17.5, 120)
@@ -24,4 +25,13 @@ script = ExtResource("2_lnu2h")
 texture = ExtResource("2_yqjtg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPaddle" unique_id=1475558220]
+shape = SubResource("RectangleShape2D_k4mbk")
+
+[node name="ComputerPaddle" type="CharacterBody2D" parent="." unique_id=1237794877]
+position = Vector2(40, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="ComputerPaddle" unique_id=2006061310]
+texture = ExtResource("4_lbhrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerPaddle" unique_id=1480362972]
 shape = SubResource("RectangleShape2D_k4mbk")
